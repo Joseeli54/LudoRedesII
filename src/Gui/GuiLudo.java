@@ -103,6 +103,10 @@ public class GuiLudo extends javax.swing.JFrame {
              getFichaAmarilla1().setEnabled(false);
              getFichaAmarilla2().setEnabled(false);
              getFichaAmarilla3().setEnabled(false);
+             getFichaAzul().setEnabled(true);
+             getFichaAzul1().setEnabled(true);
+             getFichaAzul2().setEnabled(true);
+             getFichaAzul3().setEnabled(true);
              getFichaRoja().setEnabled(false);
              getFichaRoja1().setEnabled(false);
              getFichaRoja2().setEnabled(false);
@@ -116,6 +120,10 @@ public class GuiLudo extends javax.swing.JFrame {
              getFichaAzul1().setEnabled(false);
              getFichaAzul2().setEnabled(false);
              getFichaAzul3().setEnabled(false);
+             getFichaAmarilla().setEnabled(true);
+             getFichaAmarilla1().setEnabled(true);
+             getFichaAmarilla2().setEnabled(true);
+             getFichaAmarilla3().setEnabled(true);
              getFichaRoja().setEnabled(false);
              getFichaRoja1().setEnabled(false);
              getFichaRoja2().setEnabled(false);
@@ -129,6 +137,10 @@ public class GuiLudo extends javax.swing.JFrame {
              getFichaAzul1().setEnabled(false);
              getFichaAzul2().setEnabled(false);
              getFichaAzul3().setEnabled(false);
+             getFichaRoja().setEnabled(true);
+             getFichaRoja1().setEnabled(true);
+             getFichaRoja2().setEnabled(true);
+             getFichaRoja3().setEnabled(true);
              getFichaAmarilla().setEnabled(false);
              getFichaAmarilla1().setEnabled(false);
              getFichaAmarilla2().setEnabled(false);
@@ -142,6 +154,10 @@ public class GuiLudo extends javax.swing.JFrame {
              getFichaAzul1().setEnabled(false);
              getFichaAzul2().setEnabled(false);
              getFichaAzul3().setEnabled(false);
+             getFichaVerde().setEnabled(true);
+             getFichaVerde1().setEnabled(true);
+             getFichaVerde2().setEnabled(true);
+             getFichaVerde3().setEnabled(true);
              getFichaAmarilla().setEnabled(false);
              getFichaAmarilla1().setEnabled(false);
              getFichaAmarilla2().setEnabled(false);

@@ -81,6 +81,7 @@ public class Tablero extends Applet{
                        getgui().SeleccionarDados().setVisible(false);
                        getgui().getLanzar().setEnabled(true);
                        getgui().getJTextFieldDados().setText("");
+                       getgui().InhabilitarFichas(1);
                  }
                 else if(CantidadDados.equals("1")){
                        dado.setCantidad(1);
@@ -90,6 +91,7 @@ public class Tablero extends Applet{
                        getgui().SeleccionarDados().setVisible(false);
                        getgui().getLanzar().setEnabled(true);
                        getgui().getJTextFieldDados().setText("");
+                       getgui().InhabilitarFichas(1);
                 }
                 } else{
                       JOptionPane.showMessageDialog(getgui(),"Escriba una cantidad");
@@ -101,65 +103,54 @@ public class Tablero extends Applet{
 
              @Override
              public void actionPerformed(ActionEvent ae) {
+                 getgui().getLanzar().setEnabled(false);
                  RealizarJugada();
              }
         });
         
-        this.guiludo.getFichaAmarilla().addMouseListener(new MouseListener(){
-            @Override
-            public void mouseClicked(MouseEvent me) {}
-            @Override
-            public void mousePressed(MouseEvent me) {}
-            @Override
-            public void mouseReleased(MouseEvent me) {}
-            @Override
-            public void mouseEntered(MouseEvent me) {}
-            @Override
-            public void mouseExited(MouseEvent me) {}
-        });
-        
-        this.guiludo.getFichaAmarilla1().addMouseListener(new MouseListener(){
-            @Override
-            public void mouseClicked(MouseEvent me) {}
-            @Override
-            public void mousePressed(MouseEvent me) {}
-            @Override
-            public void mouseReleased(MouseEvent me) {}
-            @Override
-            public void mouseEntered(MouseEvent me) {}
-            @Override
-            public void mouseExited(MouseEvent me) {}
-        });
-        
-        this.guiludo.getFichaAmarilla2().addMouseListener(new MouseListener(){
-            @Override
-            public void mouseClicked(MouseEvent me) {}
-            @Override
-            public void mousePressed(MouseEvent me) {}
-            @Override
-            public void mouseReleased(MouseEvent me) {}
-            @Override
-            public void mouseEntered(MouseEvent me) {}
-            @Override
-            public void mouseExited(MouseEvent me) {}
-        });
-        
-        this.guiludo.getFichaAmarilla3().addMouseListener(new MouseListener(){
-            @Override
-            public void mouseClicked(MouseEvent me) {}
-            @Override
-            public void mousePressed(MouseEvent me) {}
-            @Override
-            public void mouseReleased(MouseEvent me) {}
-            @Override
-            public void mouseEntered(MouseEvent me) {}
-            @Override
-            public void mouseExited(MouseEvent me) {}
-        });
-        
         this.guiludo.getFichaAzul().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(0).getColor() == Azul){
+                    if(getgui().getFichaAzul().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(0).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 0){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                    Mover_Ficha(0,getgui().getFichaAzul());
+                                    jugadores.get(0).getFicha(0).setPosicion(0);
+                                    jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                    siguienteJugador();
+                                    getgui().mostrarJugadoresEnTabla(getJugadores());
+                                    getgui().InhabilitarFichas(2);
+                                }else{
+                                    JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAzul());
+                               jugadores.get(0).getFicha(0).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(2);
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -172,7 +163,47 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaAzul1().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                 if(jugadores.get(0).getFicha(1).getColor() == Azul){
+                    if(getgui().getFichaAzul1().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(1).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 0){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                 
+                                if(FichaMontada == 0){
+                                    Mover_Ficha(0,getgui().getFichaAzul1());
+                                    jugadores.get(0).getFicha(1).setPosicion(0);
+                                    jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                    siguienteJugador();
+                                    getgui().mostrarJugadoresEnTabla(getJugadores());
+                                    getgui().InhabilitarFichas(2);
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
+                               
+                                if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
+                                }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAzul1());
+                               jugadores.get(0).getFicha(1).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(2);
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -185,7 +216,46 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaAzul2().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                 if(jugadores.get(0).getFicha(2).getColor() == Azul){
+                    if(getgui().getFichaAzul2().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(2).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 0){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(0,getgui().getFichaAzul2());
+                                jugadores.get(0).getFicha(2).setPosicion(0);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(2);
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAzul2());
+                               jugadores.get(0).getFicha(2).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(2);
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -198,7 +268,308 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaAzul3().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                 if(jugadores.get(0).getFicha(3).getColor() == Azul){
+                    if(getgui().getFichaAzul3().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(3).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 0){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(0,getgui().getFichaAzul3());
+                                jugadores.get(0).getFicha(3).setPosicion(0);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(2);
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAzul3());
+                               jugadores.get(0).getFicha(3).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(2);
+                            }
+                    }
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent me) {}
+            @Override
+            public void mouseReleased(MouseEvent me) {}
+            @Override
+            public void mouseEntered(MouseEvent me) {}
+            @Override
+            public void mouseExited(MouseEvent me) {}
+        });
+        
+        this.guiludo.getFichaAmarilla().addMouseListener(new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(0).getColor() == Amarillo){
+                    if(getgui().getFichaAmarilla().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(0).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 13){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                    Mover_Ficha(13,getgui().getFichaAmarilla());
+                                    jugadores.get(0).getFicha(0).setPosicion(13);
+                                    jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                    siguienteJugador();
+
+                                    if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAmarilla());
+                               jugadores.get(0).getFicha(0).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                            }
+                    }
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent me) {}
+            @Override
+            public void mouseReleased(MouseEvent me) {}
+            @Override
+            public void mouseEntered(MouseEvent me) {}
+            @Override
+            public void mouseExited(MouseEvent me) {}
+        });
+        
+        this.guiludo.getFichaAmarilla1().addMouseListener(new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(1).getColor() == Amarillo){
+                    if(getgui().getFichaAmarilla1().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(1).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 13){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(13,getgui().getFichaAmarilla1());
+                                jugadores.get(0).getFicha(1).setPosicion(13);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() >= 3){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(3);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAmarilla1());
+                               jugadores.get(0).getFicha(1).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                            }
+                    }
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent me) {}
+            @Override
+            public void mouseReleased(MouseEvent me) {}
+            @Override
+            public void mouseEntered(MouseEvent me) {}
+            @Override
+            public void mouseExited(MouseEvent me) {}
+        });
+        
+        this.guiludo.getFichaAmarilla2().addMouseListener(new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(2).getColor() == Amarillo){
+                    if(getgui().getFichaAmarilla2().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(2).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 13){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(13,getgui().getFichaAmarilla2());
+                                jugadores.get(0).getFicha(2).setPosicion(13);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() >= 3){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(3);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAmarilla2());
+                               jugadores.get(0).getFicha(2).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                            }
+                    }
+                }
+            }
+            @Override
+            public void mousePressed(MouseEvent me) {}
+            @Override
+            public void mouseReleased(MouseEvent me) {}
+            @Override
+            public void mouseEntered(MouseEvent me) {}
+            @Override
+            public void mouseExited(MouseEvent me) {}
+        });
+        
+        this.guiludo.getFichaAmarilla3().addMouseListener(new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(3).getColor() == Amarillo){
+                    if(getgui().getFichaAmarilla3().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(3).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 13){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(13,getgui().getFichaAmarilla3());
+                                jugadores.get(0).getFicha(3).setPosicion(13);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() >= 3){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(3);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaAmarilla3());
+                               jugadores.get(0).getFicha(3).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -211,7 +582,59 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaRoja().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(0).getColor() == Rojo){
+                    if(getgui().getFichaRoja().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(0).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 39){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(39,getgui().getFichaRoja());
+                                jugadores.get(0).getFicha(0).setPosicion(39);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaRoja());
+                               jugadores.get(0).getFicha(0).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -224,7 +647,59 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaRoja1().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(1).getColor() == Rojo){
+                    if(getgui().getFichaRoja1().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(1).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 39){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(39,getgui().getFichaRoja1());
+                                jugadores.get(0).getFicha(1).setPosicion(39);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaRoja1());
+                               jugadores.get(0).getFicha(1).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -237,7 +712,59 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaRoja2().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(2).getColor() == Rojo){
+                    if(getgui().getFichaRoja2().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(2).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 39){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(39,getgui().getFichaRoja2());
+                                jugadores.get(0).getFicha(2).setPosicion(39);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        } else
+                            if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaRoja2());
+                               jugadores.get(0).getFicha(2).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                        }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -250,7 +777,59 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaRoja3().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(3).getColor() == Rojo){
+                    if(getgui().getFichaRoja3().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(3).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 39){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(39,getgui().getFichaRoja3());
+                                jugadores.get(0).getFicha(3).setPosicion(39);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                
+                                if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaRoja3());
+                               jugadores.get(0).getFicha(3).setPosicion(Pasos);
+                               siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -263,7 +842,46 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaVerde().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(0).getColor() == Verde){
+                    if(getgui().getFichaVerde().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(0).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 26){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(26,getgui().getFichaVerde());
+                                jugadores.get(0).getFicha(0).setPosicion(26);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaVerde());
+                               jugadores.get(0).getFicha(0).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(1);
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -276,7 +894,46 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaVerde1().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(1).getColor() == Verde){
+                    if(getgui().getFichaVerde1().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(1).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 26){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(26,getgui().getFichaVerde1());
+                                jugadores.get(0).getFicha(1).setPosicion(26);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        }else
+                            if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaVerde1());
+                               jugadores.get(0).getFicha(1).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(1);
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -289,7 +946,47 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaVerde2().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(2).getColor() == Verde){
+                    if(getgui().getFichaVerde2().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(2).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 26){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(26,getgui().getFichaVerde2());
+                                jugadores.get(0).getFicha(2).setPosicion(26);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                } else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        } else
+                            if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaVerde2());
+                               jugadores.get(0).getFicha(2).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(1);
+                               
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -302,7 +999,47 @@ public class Tablero extends Applet{
         
         this.guiludo.getFichaVerde3().addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent me) {}
+            public void mouseClicked(MouseEvent me) {
+                if(jugadores.get(0).getFicha(3).getColor() == Verde){
+                    if(getgui().getFichaVerde3().isEnabled() == true){
+                        if(jugadores.get(0).getFicha(3).getPosicion() == -1){
+                            if(Resultado >= 6){
+                                int FichaMontada = 0;
+                                for(int i = 0; i <= 3; i++){
+                                    if(jugadores.get(0).getFicha(i).getPosicion() == 26){
+                                        FichaMontada = 1;
+                                    }
+                                }
+                                
+                                if(FichaMontada == 0){
+                                Mover_Ficha(26,getgui().getFichaVerde3());
+                                jugadores.get(0).getFicha(3).setPosicion(26);
+                                jugadores.get(0).getCarcel().setCantidadFichas(jugadores.get(0).getCarcel().getCantidadFichas()-1);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                }else{
+                                JOptionPane.showMessageDialog(getgui(),"Hay una ficha en la posicion 0, por favor mueva esa ficha primero antes de sacar las otras");
+                                }
+                            }
+                        } else
+                            if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
+                               int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
+                               
+                               if(Pasos > 51){ 
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
+                               }
+                               
+                               Mover_Ficha(Pasos,getgui().getFichaVerde3());
+                               jugadores.get(0).getFicha(3).setPosicion(Pasos);
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(1);
+                               
+                            }
+                    }
+                }
+            }
             @Override
             public void mousePressed(MouseEvent me) {}
             @Override
@@ -443,13 +1180,42 @@ public class Tablero extends Applet{
     public void siguienteJugador() {
         getJugadores().add(getJugadores().get(0));
         getJugadores().remove(0);
+        getgui().getLanzar().setEnabled(true);
+        Resultado = 0;
     }
     
     public void RealizarJugada(){
        Resultado = LanzamientoDado();
        JOptionPane.showMessageDialog(getgui(),"Valor resultante: "+Resultado);
-       siguienteJugador();
-       getgui().mostrarJugadoresEnTabla(getJugadores());
+       
+       if(jugadores.get(0).getCarcel().getCantidadFichas() == 4){
+           if(Resultado < 6){
+               if(jugadores.get(0).getFicha(0).getColor() == Azul){
+                   getgui().InhabilitarFichas(2);
+               }
+               else if(jugadores.get(0).getFicha(0).getColor() == Amarillo){
+                   if(jugadores.size() >= 3){
+                      getgui().InhabilitarFichas(3);
+                   }
+                   else{
+                      getgui().InhabilitarFichas(1);
+                   }
+               }
+               else if(jugadores.get(0).getFicha(0).getColor() == Rojo){
+                   if(jugadores.size() == 4){
+                      getgui().InhabilitarFichas(4);
+                   }
+                   else{
+                      getgui().InhabilitarFichas(1);
+                   }
+               }
+               else if(jugadores.get(0).getFicha(0).getColor() == Verde){
+                   getgui().InhabilitarFichas(1);
+               }
+               siguienteJugador();
+               getgui().mostrarJugadoresEnTabla(getJugadores());
+           }
+       }
     }
     
     public ArrayList<Ficha> crearFichas(ColorFicha color){
