@@ -325,83 +325,83 @@ public class GuiLudo extends javax.swing.JFrame {
         jPanel4.add(jLabel5);
         jLabel5.setBounds(0, 10, 0, 0);
 
-        FichaRoja.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\Ficha.png")); // NOI18N
+        FichaRoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/Ficha.png"))); // NOI18N
         FichaRoja.setToolTipText("");
         jPanel4.add(FichaRoja);
         FichaRoja.setBounds(345, 115, 40, 30);
 
-        FichaRoja1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\Ficha.png")); // NOI18N
+        FichaRoja1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/Ficha.png"))); // NOI18N
         FichaRoja1.setToolTipText("");
         jPanel4.add(FichaRoja1);
         FichaRoja1.setBounds(345, 55, 40, 30);
 
-        FichaRoja2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\Ficha.png")); // NOI18N
+        FichaRoja2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/Ficha.png"))); // NOI18N
         FichaRoja2.setToolTipText("");
         jPanel4.add(FichaRoja2);
         FichaRoja2.setBounds(375, 85, 40, 30);
 
-        FichaRoja3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\Ficha.png")); // NOI18N
+        FichaRoja3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/Ficha.png"))); // NOI18N
         FichaRoja3.setToolTipText("");
         jPanel4.add(FichaRoja3);
         FichaRoja3.setBounds(315, 85, 40, 30);
 
-        FichaAzul.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaAzul.png")); // NOI18N
+        FichaAzul.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaAzul.png"))); // NOI18N
         jPanel4.add(FichaAzul);
         FichaAzul.setBounds(315, 355, 35, 33);
 
-        FichaAzul1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaAzul.png")); // NOI18N
+        FichaAzul1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaAzul.png"))); // NOI18N
         jPanel4.add(FichaAzul1);
         FichaAzul1.setBounds(345, 385, 35, 33);
 
-        FichaAzul2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaAzul.png")); // NOI18N
+        FichaAzul2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaAzul.png"))); // NOI18N
         jPanel4.add(FichaAzul2);
         FichaAzul2.setBounds(375, 355, 35, 33);
 
-        FichaAzul3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaAzul.png")); // NOI18N
+        FichaAzul3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaAzul.png"))); // NOI18N
         jPanel4.add(FichaAzul3);
         FichaAzul3.setBounds(345, 325, 35, 33);
 
-        FichaAmarilla1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaYellow.png")); // NOI18N
+        FichaAmarilla1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaYellow.png"))); // NOI18N
         FichaAmarilla1.setToolTipText("");
         jPanel4.add(FichaAmarilla1);
         FichaAmarilla1.setBounds(105, 355, 33, 32);
 
-        FichaAmarilla.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaYellow.png")); // NOI18N
+        FichaAmarilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaYellow.png"))); // NOI18N
         FichaAmarilla.setToolTipText("");
         jPanel4.add(FichaAmarilla);
         FichaAmarilla.setBounds(75, 325, 33, 32);
 
-        FichaAmarilla2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaYellow.png")); // NOI18N
+        FichaAmarilla2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaYellow.png"))); // NOI18N
         FichaAmarilla2.setToolTipText("");
         jPanel4.add(FichaAmarilla2);
         FichaAmarilla2.setBounds(75, 385, 33, 32);
 
-        FichaAmarilla3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaYellow.png")); // NOI18N
+        FichaAmarilla3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaYellow.png"))); // NOI18N
         FichaAmarilla3.setToolTipText("");
         jPanel4.add(FichaAmarilla3);
         FichaAmarilla3.setBounds(45, 355, 33, 32);
 
-        FichaVerde1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaVerde.png")); // NOI18N
+        FichaVerde1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaVerde.png"))); // NOI18N
         FichaVerde1.setToolTipText("");
         jPanel4.add(FichaVerde1);
         FichaVerde1.setBounds(105, 85, 32, 30);
 
-        FichaVerde3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaVerde.png")); // NOI18N
+        FichaVerde3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaVerde.png"))); // NOI18N
         FichaVerde3.setToolTipText("");
         jPanel4.add(FichaVerde3);
         FichaVerde3.setBounds(45, 85, 32, 30);
 
-        FichaVerde2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaVerde.png")); // NOI18N
+        FichaVerde2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaVerde.png"))); // NOI18N
         FichaVerde2.setToolTipText("");
         jPanel4.add(FichaVerde2);
         FichaVerde2.setBounds(75, 115, 32, 30);
 
-        FichaVerde.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Documents\\NetBeansProjects\\Ludo\\src\\media\\FichaVerde.png")); // NOI18N
+        FichaVerde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/FichaVerde.png"))); // NOI18N
         FichaVerde.setToolTipText("");
         jPanel4.add(FichaVerde);
         FichaVerde.setBounds(75, 55, 32, 30);
 
-        jLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elias Barrientos\\Desktop\\Proyecto Ludo\\LudoIMG.png")); // NOI18N
+        jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/LudoIMG.png"))); // NOI18N
         jPanel4.add(jLabel);
         jLabel.setBounds(0, 0, 460, 470);
 

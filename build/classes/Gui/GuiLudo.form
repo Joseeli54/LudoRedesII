@@ -211,7 +211,7 @@
         <Component class="javax.swing.JLabel" name="FichaRoja">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\Ficha.png"/>
+              <Image iconType="3" name="/media/Ficha.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -224,7 +224,7 @@
         <Component class="javax.swing.JLabel" name="FichaRoja1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\Ficha.png"/>
+              <Image iconType="3" name="/media/Ficha.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -237,7 +237,7 @@
         <Component class="javax.swing.JLabel" name="FichaRoja2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\Ficha.png"/>
+              <Image iconType="3" name="/media/Ficha.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -250,7 +250,7 @@
         <Component class="javax.swing.JLabel" name="FichaRoja3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\Ficha.png"/>
+              <Image iconType="3" name="/media/Ficha.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -263,7 +263,7 @@
         <Component class="javax.swing.JLabel" name="FichaAzul">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaAzul.png"/>
+              <Image iconType="3" name="/media/FichaAzul.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -275,7 +275,7 @@
         <Component class="javax.swing.JLabel" name="FichaAzul1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaAzul.png"/>
+              <Image iconType="3" name="/media/FichaAzul.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -287,7 +287,7 @@
         <Component class="javax.swing.JLabel" name="FichaAzul2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaAzul.png"/>
+              <Image iconType="3" name="/media/FichaAzul.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -299,7 +299,7 @@
         <Component class="javax.swing.JLabel" name="FichaAzul3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaAzul.png"/>
+              <Image iconType="3" name="/media/FichaAzul.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -311,7 +311,7 @@
         <Component class="javax.swing.JLabel" name="FichaAmarilla1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaYellow.png"/>
+              <Image iconType="3" name="/media/FichaYellow.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -324,7 +324,7 @@
         <Component class="javax.swing.JLabel" name="FichaAmarilla">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaYellow.png"/>
+              <Image iconType="3" name="/media/FichaYellow.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -340,7 +340,7 @@
         <Component class="javax.swing.JLabel" name="FichaAmarilla2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaYellow.png"/>
+              <Image iconType="3" name="/media/FichaYellow.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -353,7 +353,7 @@
         <Component class="javax.swing.JLabel" name="FichaAmarilla3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaYellow.png"/>
+              <Image iconType="3" name="/media/FichaYellow.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -366,7 +366,7 @@
         <Component class="javax.swing.JLabel" name="FichaVerde1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaVerde.png"/>
+              <Image iconType="3" name="/media/FichaVerde.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -379,7 +379,7 @@
         <Component class="javax.swing.JLabel" name="FichaVerde3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaVerde.png"/>
+              <Image iconType="3" name="/media/FichaVerde.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -392,7 +392,7 @@
         <Component class="javax.swing.JLabel" name="FichaVerde2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaVerde.png"/>
+              <Image iconType="3" name="/media/FichaVerde.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -405,7 +405,7 @@
         <Component class="javax.swing.JLabel" name="FichaVerde">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Documents\NetBeansProjects\Ludo\src\media\FichaVerde.png"/>
+              <Image iconType="3" name="/media/FichaVerde.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -418,7 +418,7 @@
         <Component class="javax.swing.JLabel" name="jLabel">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Elias Barrientos\Desktop\Proyecto Ludo\LudoIMG.png"/>
+              <Image iconType="3" name="/media/LudoIMG.png"/>
             </Property>
           </Properties>
           <Constraints>
