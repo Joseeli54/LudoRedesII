@@ -138,15 +138,27 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
                                
-                               if(Pasos > 51){ 
-                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 50 && jugadores.get(0).getFicha(0).getPosicion() <= limite.LimiteFichaColorAzul){ 
+                                 Pasos = (limite.LimiteFichaColorAzul + 1) + (Resultado-
+                                         (limite.LimiteFichaColorAzul-jugadores.get(0).getFicha(0).getPosicion()));
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(0, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAzul());
                                jugadores.get(0).getFicha(0).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(2);
+                               } else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(2);
+                               }
                             }
                     }
                 }
@@ -191,15 +203,27 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
                                
-                                if(Pasos > 51){ 
-                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
-                                }
+                                LimiteFichaColores limite = new LimiteFichaColores();
                                
+                               if(Pasos > 50 && jugadores.get(0).getFicha(1).getPosicion() <= limite.LimiteFichaColorAzul){ 
+                                 Pasos = (limite.LimiteFichaColorAzul + 1) + (Resultado-
+                                         (limite.LimiteFichaColorAzul-jugadores.get(0).getFicha(1).getPosicion()));
+                               }
+                               
+                               int PuedoEstacionarme = mismos_pasos(1, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAzul1());
                                jugadores.get(0).getFicha(1).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(2);
+                               } else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(2);
+                                }
                             }
                     }
                 }
@@ -243,15 +267,27 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
                                
-                               if(Pasos > 51){ 
-                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 50 && jugadores.get(0).getFicha(2).getPosicion() <= limite.LimiteFichaColorAzul){ 
+                                 Pasos = (limite.LimiteFichaColorAzul + 1) + (Resultado-
+                                         (limite.LimiteFichaColorAzul-jugadores.get(0).getFicha(2).getPosicion()));
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(2, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAzul2());
                                jugadores.get(0).getFicha(2).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(2);
+                               } else{
+                               JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                               siguienteJugador();
+                               getgui().mostrarJugadoresEnTabla(getJugadores());
+                               getgui().InhabilitarFichas(2);
+                                }
                             }
                     }
                 }
@@ -295,15 +331,27 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
                                
-                               if(Pasos > 51){ 
-                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 50 && jugadores.get(0).getFicha(3).getPosicion() <= limite.LimiteFichaColorAzul){ 
+                                 Pasos = (limite.LimiteFichaColorAzul + 1) + (Resultado-
+                                         (limite.LimiteFichaColorAzul-jugadores.get(0).getFicha(3).getPosicion()));
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(3, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAzul3());
                                jugadores.get(0).getFicha(3).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(2);
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(2);
+                                }
                             }
                     }
                 }
@@ -355,10 +403,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 11 && jugadores.get(0).getFicha(0).getPosicion() <= limite.LimiteFichaColorAmarillo){ 
+                                 Pasos = (57) + (Resultado-
+                                         (limite.LimiteFichaColorAmarillo-jugadores.get(0).getFicha(0).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(0, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAmarilla());
                                jugadores.get(0).getFicha(0).setPosicion(Pasos);
                                siguienteJugador();
@@ -370,6 +428,18 @@ public class Tablero extends Applet{
                                       getgui().mostrarJugadoresEnTabla(getJugadores());
                                       getgui().InhabilitarFichas(1);
                                     }
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                                }
                             }
                     }
                 }
@@ -420,11 +490,21 @@ public class Tablero extends Applet{
                         }else
                             if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
+                              
+                               LimiteFichaColores limite = new LimiteFichaColores();
                                
+                               if(Pasos > 11 && jugadores.get(0).getFicha(1).getPosicion() <= limite.LimiteFichaColorAmarillo){ 
+                                 Pasos = (57) + (Resultado-
+                                         (limite.LimiteFichaColorAmarillo-jugadores.get(0).getFicha(1).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
                                }
                                
+                                int PuedoEstacionarme = mismos_pasos(1, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAmarilla1());
                                jugadores.get(0).getFicha(1).setPosicion(Pasos);
                                siguienteJugador();
@@ -436,6 +516,18 @@ public class Tablero extends Applet{
                                       getgui().mostrarJugadoresEnTabla(getJugadores());
                                       getgui().InhabilitarFichas(1);
                                     }
+                                }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                                }
                             }
                     }
                 }
@@ -486,10 +578,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 11 && jugadores.get(0).getFicha(2).getPosicion() <= limite.LimiteFichaColorAmarillo){ 
+                                 Pasos = (57) + (Resultado-
+                                         (limite.LimiteFichaColorAmarillo-jugadores.get(0).getFicha(2).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(2, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAmarilla2());
                                jugadores.get(0).getFicha(2).setPosicion(Pasos);
                                siguienteJugador();
@@ -501,6 +603,18 @@ public class Tablero extends Applet{
                                       getgui().mostrarJugadoresEnTabla(getJugadores());
                                       getgui().InhabilitarFichas(1);
                                     }
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                                }
                             }
                     }
                 }
@@ -551,10 +665,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 11 && jugadores.get(0).getFicha(3).getPosicion() <= limite.LimiteFichaColorAmarillo){ 
+                                 Pasos = (57) + (Resultado-
+                                         (limite.LimiteFichaColorAmarillo-jugadores.get(0).getFicha(3).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(3, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaAmarilla3());
                                jugadores.get(0).getFicha(3).setPosicion(Pasos);
                                siguienteJugador();
@@ -566,6 +690,19 @@ public class Tablero extends Applet{
                                       getgui().mostrarJugadoresEnTabla(getJugadores());
                                       getgui().InhabilitarFichas(1);
                                     }
+                               
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() >= 3){
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(3);
+                                    }
+                                    else{
+                                      getgui().mostrarJugadoresEnTabla(getJugadores());
+                                      getgui().InhabilitarFichas(1);
+                                    }
+                                }
                             }
                     }
                 }
@@ -616,10 +753,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 37 && jugadores.get(0).getFicha(0).getPosicion() <= limite.LimiteFichaColorRojo){ 
+                                 Pasos = (69) + (Resultado-
+                                         (limite.LimiteFichaColorRojo-jugadores.get(0).getFicha(0).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(0, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaRoja());
                                jugadores.get(0).getFicha(0).setPosicion(Pasos);
                                siguienteJugador();
@@ -631,6 +778,19 @@ public class Tablero extends Applet{
                                   getgui().mostrarJugadoresEnTabla(getJugadores());
                                   getgui().InhabilitarFichas(1);
                                 }
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
+                                }
+                               
                             }
                     }
                 }
@@ -681,10 +841,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 37 && jugadores.get(0).getFicha(1).getPosicion() <= limite.LimiteFichaColorRojo){ 
+                                 Pasos = (69) + (Resultado-
+                                         (limite.LimiteFichaColorRojo-jugadores.get(0).getFicha(1).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(1, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaRoja1());
                                jugadores.get(0).getFicha(1).setPosicion(Pasos);
                                siguienteJugador();
@@ -695,6 +865,18 @@ public class Tablero extends Applet{
                                 else{
                                   getgui().mostrarJugadoresEnTabla(getJugadores());
                                   getgui().InhabilitarFichas(1);
+                                }
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
                                 }
                             }
                     }
@@ -746,10 +928,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 37 && jugadores.get(0).getFicha(2).getPosicion() <= limite.LimiteFichaColorRojo){ 
+                                 Pasos = (69) + (Resultado-
+                                         (limite.LimiteFichaColorRojo-jugadores.get(0).getFicha(2).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(2, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaRoja2());
                                jugadores.get(0).getFicha(2).setPosicion(Pasos);
                                siguienteJugador();
@@ -760,6 +952,18 @@ public class Tablero extends Applet{
                                 else{
                                   getgui().mostrarJugadoresEnTabla(getJugadores());
                                   getgui().InhabilitarFichas(1);
+                                }
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
                                 }
                         }
                     }
@@ -811,10 +1015,20 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 37 && jugadores.get(0).getFicha(3).getPosicion() <= limite.LimiteFichaColorRojo){ 
+                                 Pasos = (69) + (Resultado-
+                                         (limite.LimiteFichaColorRojo-jugadores.get(0).getFicha(3).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(3, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaRoja3());
                                jugadores.get(0).getFicha(3).setPosicion(Pasos);
                                siguienteJugador();
@@ -825,6 +1039,18 @@ public class Tablero extends Applet{
                                 else{
                                   getgui().mostrarJugadoresEnTabla(getJugadores());
                                   getgui().InhabilitarFichas(1);
+                                }
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                               if(jugadores.size() == 4){
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(4);
+                                }
+                                else{
+                                  getgui().mostrarJugadoresEnTabla(getJugadores());
+                                  getgui().InhabilitarFichas(1);
+                                }
                                 }
                             }
                     }
@@ -869,15 +1095,32 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(0).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(0).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 24 && jugadores.get(0).getFicha(0).getPosicion() <= limite.LimiteFichaColorVerde){ 
+                                 Pasos = (63) + (Resultado-
+                                         (limite.LimiteFichaColorVerde-jugadores.get(0).getFicha(0).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(0, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaVerde());
                                jugadores.get(0).getFicha(0).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(1);
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                }
+                               
                             }
                     }
                 }
@@ -921,15 +1164,32 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(1).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(1).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 24 && jugadores.get(0).getFicha(1).getPosicion() <= limite.LimiteFichaColorVerde){ 
+                                 Pasos = (63) + (Resultado-
+                                         (limite.LimiteFichaColorVerde-jugadores.get(0).getFicha(1).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
-                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(0).getPosicion()) - 1;
+                                 Pasos = Resultado - (51 - jugadores.get(0).getFicha(1).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(1, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaVerde1());
                                jugadores.get(0).getFicha(1).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(1);
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                }
+                               
                             }
                     }
                 }
@@ -973,15 +1233,31 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(2).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(2).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 24 && jugadores.get(0).getFicha(2).getPosicion() <= limite.LimiteFichaColorVerde){ 
+                                 Pasos = (63) + (Resultado-
+                                         (limite.LimiteFichaColorVerde-jugadores.get(0).getFicha(2).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(2).getPosicion()) - 1;
                                }
                                
+                               int PuedoEstacionarme = mismos_pasos(2, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
                                Mover_Ficha(Pasos,getgui().getFichaVerde2());
                                jugadores.get(0).getFicha(2).setPosicion(Pasos);
                                siguienteJugador();
                                getgui().mostrarJugadoresEnTabla(getJugadores());
                                getgui().InhabilitarFichas(1);
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                                }
                                
                             }
                     }
@@ -1026,15 +1302,31 @@ public class Tablero extends Applet{
                             if(jugadores.get(0).getFicha(3).getPosicion() != -1 && Resultado != 0){
                                int Pasos = Resultado + jugadores.get(0).getFicha(3).getPosicion();
                                
+                               LimiteFichaColores limite = new LimiteFichaColores();
+                               
+                               if(Pasos > 24 && jugadores.get(0).getFicha(3).getPosicion() <= limite.LimiteFichaColorVerde){ 
+                                 Pasos = (63) + (Resultado-
+                                         (limite.LimiteFichaColorVerde-jugadores.get(0).getFicha(3).getPosicion()));
+                               }
+                               else
                                if(Pasos > 51){ 
                                  Pasos = Resultado - (51 - jugadores.get(0).getFicha(3).getPosicion()) - 1;
                                }
                                
-                               Mover_Ficha(Pasos,getgui().getFichaVerde3());
-                               jugadores.get(0).getFicha(3).setPosicion(Pasos);
-                               siguienteJugador();
-                               getgui().mostrarJugadoresEnTabla(getJugadores());
-                               getgui().InhabilitarFichas(1);
+                               int PuedoEstacionarme = mismos_pasos(3, Pasos);
+                               
+                               if(PuedoEstacionarme == 0){
+                                Mover_Ficha(Pasos,getgui().getFichaVerde3());
+                                jugadores.get(0).getFicha(3).setPosicion(Pasos);
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                               }else{
+                                JOptionPane.showMessageDialog(getgui(),"Una ficha no puede estar encima de otra, turno perdido"); 
+                                siguienteJugador();
+                                getgui().mostrarJugadoresEnTabla(getJugadores());
+                                getgui().InhabilitarFichas(1);
+                               }
                                
                             }
                     }
@@ -1087,6 +1379,25 @@ public class Tablero extends Applet{
         });*/
         
     }
+    
+    public int mismos_pasos(int numero, int pasos){
+    int VariableLogica = 0;
+        for(int i = 1; i<jugadores.size(); i++){
+            for(int j = 0; j<=3; j++)
+            if(pasos 
+                    == jugadores.get(i).getFicha(j).getPosicion())
+            VariableLogica = 1;
+        }
+        
+        for(int i = 0; i<=3; i++){
+            if(pasos
+                    == jugadores.get(0).getFicha(i).getPosicion() && i != numero)
+             VariableLogica = 1;   
+        }
+        
+        return VariableLogica;
+    }
+    
     
     public void habilitarJugador(){
                if(dado.getCantidad() !=0){  
@@ -1162,6 +1473,30 @@ public class Tablero extends Applet{
          if(posicion == 49){ficha.setLocation(420, 190);}
          if(posicion == 50){ficha.setLocation(420, 220);}
          if(posicion == 51){ficha.setLocation(420, 250);}
+         if(posicion == 52){ficha.setLocation(390, 220);}
+         if(posicion == 53){ficha.setLocation(360, 220);}
+         if(posicion == 54){ficha.setLocation(330, 220);}
+         if(posicion == 55){ficha.setLocation(300, 220);}
+         if(posicion == 56){ficha.setLocation(270, 220);}
+         if(posicion == 57){ficha.setLocation(240, 220);}
+         if(posicion == 58){ficha.setLocation(210, 400);}
+         if(posicion == 59){ficha.setLocation(210, 370);}
+         if(posicion == 60){ficha.setLocation(210, 340);}
+         if(posicion == 61){ficha.setLocation(210, 310);}
+         if(posicion == 62){ficha.setLocation(210, 280);}
+         if(posicion == 63){ficha.setLocation(210, 250);}
+         if(posicion == 64){ficha.setLocation(30, 220);}
+         if(posicion == 65){ficha.setLocation(60, 220);}
+         if(posicion == 66){ficha.setLocation(90, 220);}
+         if(posicion == 67){ficha.setLocation(120, 220);}
+         if(posicion == 68){ficha.setLocation(150, 220);}
+         if(posicion == 69){ficha.setLocation(180, 220);}
+         if(posicion == 70){ficha.setLocation(210, 40);}
+         if(posicion == 71){ficha.setLocation(210, 70);}
+         if(posicion == 72){ficha.setLocation(210, 100);}
+         if(posicion == 73){ficha.setLocation(210, 130);}
+         if(posicion == 74){ficha.setLocation(210, 150);}
+         if(posicion == 75){ficha.setLocation(210, 180);}
      }
     
      public void habilitarJuego() {
