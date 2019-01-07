@@ -13,6 +13,6 @@ package ludo;
 public class LimiteFichaColores {
    int LimiteFichaColorAzul = 50;
    int LimiteFichaColorAmarillo = 11;
-   int LimiteFichaColorRojo = 24;
-   int LimiteFichaColorVerder = 37;
+   int LimiteFichaColorRojo = 37;
+   int LimiteFichaColorVerde = 24;
 }
