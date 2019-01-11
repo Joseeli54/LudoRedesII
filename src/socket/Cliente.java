@@ -17,8 +17,9 @@ public class Cliente extends Conexion
 {
     public Cliente() throws IOException{super("cliente"); } //Se usa el constructor para cliente de Conexion
      private Scanner entrada=new Scanner(System.in);
-      private String st = "",s2="";
+      private String st = "";
      private int menu=0;
+     // variable para que el cliente conozca su numero
      private int maquina;
      private DataInputStream bufferDeEntrada = null;
     public void startClient(String nombre) //Método para iniciar el cliente
