@@ -15,10 +15,11 @@ import socket.Conexion;
 
 public class Cliente extends Conexion
 {
-    public Cliente() throws IOException{super("cliente");} //Se usa el constructor para cliente de Conexion
+    public Cliente() throws IOException{super("cliente"); } //Se usa el constructor para cliente de Conexion
      private Scanner entrada=new Scanner(System.in);
-      private String st = "";
+      private String st = "",s2="";
      private int menu=0;
+     private int maquina;
      private DataInputStream bufferDeEntrada = null;
     public void startClient(String nombre) //Método para iniciar el cliente
     {
@@ -51,7 +52,7 @@ public class Cliente extends Conexion
      }
      
     public void salir() throws IOException{
-      salidaServidor.writeUTF("salir\n");
+      salidaServidor.writeUTF("salir"+maquina+"\n");
                    /*salidaServidor.writeUTF("Maquina desconectada exitosamente" + "\n");*/
                   // cs.close();//Fin de la conexión
                    System.out.println("Fin de la conexión");                   
@@ -65,6 +66,10 @@ public class Cliente extends Conexion
         //Se muestra por pantalla el mensaje recibido
               st = (String) bufferDeEntrada.readUTF();
                System.out.println("Respuesta del servidor:  "+st);
+               if(st.length()>=10)
+               if(st.substring(0,9).equals("conectado"))
+                   this.maquina=Integer.parseInt(st.substring(9));
+               System.out.println("su maquina es: "+maquina);
                st="";
     }
 }
