@@ -15,13 +15,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import static ludo.ColorFicha.Amarillo;
 import static ludo.ColorFicha.Azul;
 import static ludo.ColorFicha.Rojo;
 import static ludo.ColorFicha.Verde;
+import socket.Cliente;
 
 /**
  *
@@ -38,6 +42,11 @@ public class Tablero extends Applet{
          dado.setCantidad(0);
          this.guiludo = new GuiLudo();
          jugadores = new ArrayList<>();
+        
+        
+        
+        
+        
         
         this.guiludo.Registrar().addActionListener(new ActionListener(){
             @Override
@@ -58,13 +67,26 @@ public class Tablero extends Applet{
         this.guiludo.Iniciar().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                     getgui().getJLabelDados().setEnabled(true);
-                     getgui().getJTextFieldDados().setEnabled(true); 
-                     getgui().SeleccionarDados().setVisible(true);
-                     getgui().getJTextFieldJugador().setEnabled(false);
-                     getgui().getJLabelNombre().setEnabled(false);
-                     getgui().Iniciar().setEnabled(false);
-                     getgui().Registrar().setEnabled(false);
+                try {
+                    getgui().getJLabelDados().setEnabled(true);
+                    getgui().getJTextFieldDados().setEnabled(true);
+                    getgui().SeleccionarDados().setVisible(true);
+                    getgui().getJTextFieldJugador().setEnabled(false);
+                    getgui().getJLabelNombre().setEnabled(false);
+                    getgui().Iniciar().setEnabled(false);
+                    getgui().Registrar().setEnabled(false);
+                    //inicio cliente
+                    Cliente cli = new Cliente(); //Se crea el cliente
+                    System.out.println("Iniciando cliente\n");
+                    cli.empezarFlujo();
+                    cli.startClient(jugadores.get(0).getNombre()); //Se inicia el cliente
+                    //cli.enviarmensaje(jugadores.get(0).getNombre());
+                     guiludo.setCliente(cli);
+                      
+                } catch (IOException ex) {
+                    Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
             } 
         });
         

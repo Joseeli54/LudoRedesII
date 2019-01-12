@@ -7,7 +7,10 @@
 package Gui;
 
 import java.awt.Component;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -16,6 +19,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import ludo.Jugador;
+import socket.Cliente;
+import socket.Conexion;
 
 /**
  *
@@ -25,6 +30,8 @@ public class GuiLudo extends javax.swing.JFrame {
     /**
      * Creates new form GuiLudo
      */
+    private Cliente cli;
+    private int flag= 0;
     public GuiLudo() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
@@ -50,6 +57,11 @@ public class GuiLudo extends javax.swing.JFrame {
         this.FichaVerde2.setVisible(false);
         this.FichaVerde3.setVisible(false);
         this.setVisible(true);
+    }
+    
+    public void setCliente(Cliente cli){
+           this.cli=cli; 
+           this.flag =1;    
     }
     
     public void mostrarJugadoresEnTabla(ArrayList<Jugador> jugadores) {
@@ -259,6 +271,11 @@ public class GuiLudo extends javax.swing.JFrame {
 
         jButtonRegistrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButtonRegistrar);
         jButtonRegistrar.setBounds(590, 170, 100, 50);
 
@@ -281,6 +298,11 @@ public class GuiLudo extends javax.swing.JFrame {
 
         jButtonInicio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonInicio.setText("Inicio");
+        jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInicioActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButtonInicio);
         jButtonInicio.setBounds(480, 170, 100, 50);
 
@@ -296,7 +318,7 @@ public class GuiLudo extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jTextFieldJugador);
-        jTextFieldJugador.setBounds(530, 140, 110, 20);
+        jTextFieldJugador.setBounds(530, 140, 110, 27);
 
         jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelNombre.setText("Nombre");
@@ -410,7 +432,7 @@ public class GuiLudo extends javax.swing.JFrame {
         jPanel4.add(jLabelDados);
         jLabelDados.setBounds(650, 142, 110, 14);
         jPanel4.add(jTextFieldDados);
-        jTextFieldDados.setBounds(760, 140, 40, 20);
+        jTextFieldDados.setBounds(760, 140, 40, 27);
 
         jButtonSeleccionarDados.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonSeleccionarDados.setText("Seleccionar Numero de Dados");
@@ -427,12 +449,30 @@ public class GuiLudo extends javax.swing.JFrame {
      * Exit the Application
      */
     private void exitForm(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_exitForm
-        System.exit(0);
+        try {
+           
+            if(flag==1)
+            this.Salir();
+            else System.exit(0);
+        } catch (IOException ex) {
+            Logger.getLogger(GuiLudo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_exitForm
 
     private void jTextFieldJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldJugadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldJugadorActionPerformed
+
+    private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
+      
+        //segunda opcion 
+
+    }//GEN-LAST:event_jButtonInicioActionPerformed
+
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,7 +486,11 @@ public class GuiLudo extends javax.swing.JFrame {
     }
     
     public JButton Iniciar(){
-      return jButtonInicio;
+        return jButtonInicio;
+    }
+    
+    public void Salir() throws IOException{
+     cli.salir();
     }
     
     public JButton Registrar(){
@@ -544,7 +588,7 @@ public class GuiLudo extends javax.swing.JFrame {
     public JLabel getTablero(){
         return jLabel;
     }
-
+    //private javax.swing.JButton jButtonSalir;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FichaAmarilla;
     private javax.swing.JLabel FichaAmarilla1;
